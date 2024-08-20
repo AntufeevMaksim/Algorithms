@@ -33,6 +33,27 @@ public class SymbolTable<Key extends Comparable<Key>, Value>
         return null;
     }
 
+    public Value min()
+    {
+        if (root==null) {return null;}
+
+        TreeNode<Key, Value> node = root;
+
+        while (node.left != null){node = node.left;}
+
+        return node.value;
+    }
+
+    public Value max()
+    {
+        if (root==null) {return null;}
+
+        TreeNode<Key, Value> node = root;
+
+        while (node.right != null){node = node.right;}
+
+        return node.value;
+    }
 
     private TreeNode<Key, Value> set(TreeNode<Key, Value> node, Key key, Value value)
     {
